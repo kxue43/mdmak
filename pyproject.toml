@@ -40,12 +40,17 @@ packages = [{ include = "**/*", from = "src" }]
 [tool.poetry.dependencies]
 python = "^3.9"
 
+[tool.poetry.group.build]
+optional = false
+
+[tool.poetry.group.build.dependencies]
+build = "*"
+
 [tool.poetry.group.develop]
 optional = true
 
 [tool.poetry.group.develop.dependencies]
 ipykernel = "^6.27.1"
-build = "*"
 
 [tool.poetry.group.linting]
 optional = true

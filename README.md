@@ -1,6 +1,16 @@
-# `mdmak` CLI
+# mdmak
+
+`mdmak` is a Python CLI program that converts a Markdown file to a GitHub style HTML.
+
+Example invocation is:
+
+```bash
+mdmak /path/to/input.md /path/to/output.html
+```
 
 ## Setup Project
+
+Install `pyenv` and `poetry>=2.0.1` first.
 
 ```bash
 pyenv local 3.11
@@ -8,21 +18,20 @@ poetry env use $(pyenv which python)
 poetry install
 ```
 
-## Build Wheel
+## Make a Release
 
 ```bash
 eval $(poetry env activate)
 python -m build
+export MDMAK_VERSION=$(poetry version --short)
+gh release create $MDMAK_VERSION --latest dist/mdmak-${MDMAK_VERSION}-py3-none-any.whl
 ```
 
-## Install on macOS
+## Install from GitHub Release Asset
+
+Users of this package can conveniently install it from the wheel file available as GitHub release asset.
+This package is not on PyPI.
 
 ```bash
-/usr/bin/python3 -m pip install /PATH/TO/mdmak/dist/mdmak-1.0.0-py3-none-any.whl
-```
-
-## Get CLI Absolute Path
-
-```bash
-echo "$(/usr/bin/python3 -c 'import site; print(site.getuserbase());')/bin/mdmak"
+pip install "mdmak@https://github.com/kxue43/mdmak/releases/download/1.0.0/mdmak-1.0.0-py3-none-any.whl"
 ```

@@ -7,3 +7,6 @@ src/*.egg-info/**/*
 /adhoc/
 /.coverage
 /poetry.toml
+/data
+/adhoc*.py
+.DS_Store

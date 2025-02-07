@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-shell-cmd-on-change = "mdmak:main"
+mdmak = "mdmak:main"
 
 [build-system]
 requires = [
@@ -32,7 +32,7 @@ include-package-data = true
 where = ["src"]
 
 [tool.setuptools.package-data]
-mdmak = ["py.typed"]
+mdmak = ["py.typed", "template/*.html"]
 
 [tool.poetry]
 packages = [{ include = "**/*", from = "src" }]
@@ -45,6 +45,7 @@ optional = true
 
 [tool.poetry.group.develop.dependencies]
 ipykernel = "^6.27.1"
+build = "*"
 
 [tool.poetry.group.linting]
 optional = true
